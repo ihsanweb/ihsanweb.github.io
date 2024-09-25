@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PIENUV - Pipis Enak Universe</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- Menu Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Kode untuk simbol tiga garis -->
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav id="navMenu" class="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="daftarcerita.html">Daftar Cerita</a></li>
+                <li><a href="info.html">More Info</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1>PIENUV XI-1</h1>
+        </header>
+
+        <section class="search-bar">
+            <h2>Cari Novel</h2>
+            <input type="text"
+                placeholder="Cari berdasarkan judul, genre, atau penulis..."
+                id="searchInput">
+            <button onclick="searchNovel()">Cari</button>
+        </section>
+
+        <section class="novel-list">
+            <h2>New Updates Story</h2>
+            <div class="novel-item" data-title="Judul Novel 1"
+                data-author="Teman 1" data-genre="Aksi">
+                <h3>Lelaki Sadboy Dengan Pedang Besar</h3>
+                <p>Penulis: Ihsan Khongguean</p>
+                <p>Genre: Action, Romance, Military</p>
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+        <script>
+        function toggleMenu() {
+            var menu = document.getElementById("navMenu");
+            menu.classList.toggle("active"); // Toggle kelas active
+        }
+
+        function searchNovel() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            window.location.href = `daftarcerita.html?search=${encodeURIComponent(query)}`;
+        }
+    </script>
+    </body>
+</html>

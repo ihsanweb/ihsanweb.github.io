@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daftar Cerita - PIENUV</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- Menu Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Kode untuk simbol tiga garis -->
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav id="navMenu" class="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="daftarcerita.html">Daftar Cerita</a></li>
+                <li><a href="info.html">More Info</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1>Daftar Cerita</h1>
+        </header>
+
+        <section class="search-bar">
+            <h2>Cari Cerita</h2>
+            <input type="text"
+                placeholder="Cari berdasarkan judul, genre, atau penulis..."
+                id="searchInput">
+            <button onclick="searchNovel()">Cari</button>
+        </section>
+
+        <section class="story-list">
+            <h2>Daftar Cerita</h2>
+            <table class="story-table">
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Penulis</th>
+                        <th>Genre</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody id="storyBody">
+                    <tr data-title="Judul Novel 1" data-author="Teman 1"
+                        data-genre="Aksi" onclick="location.href='cerita1.html'">
+                        <td>Lelaki Sadboy Dengan Pedang Besar</td>
+                        <td>Ihsan Khongguan</td>
+                        <td>Action, Romance, Military</td>
+                        <td>Kisah ini menceritakan tentang lelaki bernama Hendro
+                            yang berpetualang mengelilingi medan tempur demi
+                            medan tempur dengan pedang besarnya</td>
+                    </tr>
+                    <!-- Tambahkan lebih banyak cerita di sini -->
+                </tbody>
+            </table>
+        </section>
+
+        <script src="script.js"></script>
+        <script>
+        function toggleMenu() {
+            var menu = document.getElementById("navMenu");
+            menu.classList.toggle("active"); // Toggle kelas active
+        }
+
+        function searchNovel() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            window.location.href = `daftarcerita.html?search=${encodeURIComponent(query)}`;
+        }
+
+        // Mengambil parameter pencarian dari URL
+        const params = new URLSearchParams(window.location.search);
+        const searchQuery = params.get('search');
+
+        if (searchQuery) {
+            const rows = document.querySelectorAll('#storyBody tr');
+            rows.forEach(row => {
+                const title = row.getAttribute('data-title').toLowerCase();
+                const author = row.getAttribute('data-author').toLowerCase();
+                const genre = row.getAttribute('data-genre').toLowerCase();
+
+                // Cek apakah ada kecocokan di judul, penulis, atau genre
+                if (title.includes(searchQuery) || author.includes(searchQuery) || genre.includes(searchQuery)) {
+                    row.style.display = ''; // Tampilkan jika cocok
+                } else {
+                    row.style.display = 'none'; // Sembunyikan jika tidak cocok
+                }
+            });
+        }
+    </script>
+    </body>
+</html>

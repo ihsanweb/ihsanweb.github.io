@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Info - PIENUV</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('paus1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: rgb(0, 195, 255); /* Ubah warna teks agar kontras dengan latar belakang */
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .discord-link img {
+            width: 50px; /* Atur ukuran logo Discord */
+            vertical-align: middle;
+            margin-right: 10px; /* Spasi antara logo dan teks */
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleMenu()">
+        &#9776; <!-- Kode untuk simbol tiga garis -->
+    </div>
+
+    <nav id="navMenu" class="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="daftarcerita.html">Daftar Cerita</a></li>
+            <li><a href="info.html">More Info</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>More Info</h1>
+    </header>
+
+    <section class="content">
+        <h2>Join Us on Discord!</h2>
+        <p>Kunjungi server Discord kami untuk berdiskusi dan mendapatkan informasi terbaru.</p>
+        <a href="https://discord.gg/UEfCnXkJ" class="discord-link" target="_blank">
+            <img src="discord.jpg" alt="Discord Logo"> Discord Server
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PIENUV - Pipis Enak Universe. Semua hak cipta dilindungi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("navMenu");
+            menu.classList.toggle("active"); // Toggle kelas active
+        }
+    </script>
+</body>
+</html>
